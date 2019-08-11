@@ -182,75 +182,6 @@ std::vector< Track > IOU_tracker(float sigma_l, float sigma_h, float sigma_iou, 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-int main()
-{
-	// open a video
-
-	// for each frame
-
-		// do detection and get bounding boxes [x, y, w, h]
-
-		// start tracking
-
-		// initiate variables
-		std::vector<Track> active_tracks;
-
-		for (Boundingbox box : frame_boxes)
-		{
-			std::vector<Boundingbox> new_box;
-
-			new_box.push_back(box);
-
-			Track t = {new_box, box.score, frame_no, 0};
-			
-			active_tracks.push_back(t);
-		}
-
-		for (int i = 0; i < active_tracks.size(); i++)
-		{
-			Track track = active_tracks[i];
-			bool updated = false;
-			
-			// finding d_best
-			index = Highest_iou(track.boxes.back(), frame_boxes);
-
-			// if you get d_best
-			if (index != -1 && find_IOU(track.boxes.back(), frame_boxes[index]) >= sigma_iou)
-			{
-				track.boxes.push_back(frame_boxes[index]);
-
-				if (track.max_score < frame_boxes[index].score)
-				{
-					// update the score in tracks
-					track.max_score = frame_boxes[index].score;
-				}
-				frame_boxes.erase(frame_boxes.begin() + index);
-
-				// updating the track
-				active_tracks[i] = track;
-				updated = true;
-			}
-			// if not updated, append them into finished tracks
-			if (!updated)
-			{
-				if (track.max_score > sigma_h && track.boxes.size() > t_min)
-				{
-					finished_tracks.push_back(track);	
-				}
-				// 
-				active_tracks.erase(active_tracks.begin() + i);
-
-				i--;
-			}
-
-
-
-		}
-
-	return 0;
-}
-
 
 
 
@@ -289,21 +220,3 @@ int main()
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
-Boundingbox xywh_to_centrewh(Boundingbox box)
-{
-	float w = box.w;
-	float h = box.h;
-	float cx = box.x + (h/2.0);
-	float cy = box.y + (w/2.0);
-
-	Boundingbox new_bb;
-	new_bb.x = cx; 
-	new_bb.y = cy;
-	new_bb.w = w;
-	new_bb.h = h;
-	new_bb.score = box.score;
-
-	return new_bb; 
-}
-
-*/
