@@ -54,15 +54,15 @@ int frame_no = 0;
 int main()
 {
     // Load names of classes
-    std::string classesFile = "/home/hitech/c++/YOLO-IOU/network_files/coco.names";
+    std::string classesFile = "/home/madhu/c++/YOLO-IOU/network_files/coco.names";
     // Read from the file
     std::ifstream ifs(classesFile.c_str());
     std::string line;
     while (std::getline(ifs, line)) classes.push_back(line);
     
     // Give the configuration and weight files for the model
-    std::string modelConfiguration = "/home/hitech/c++/YOLO-IOU/network_files/yolov3.cfg";
-    std::string modelWeights = "/home/hitech/c++/YOLO-IOU/network_files/yolov3.weights";
+    std::string modelConfiguration = "/home/madhu/c++/YOLO-IOU/network_files/yolov3.cfg";
+    std::string modelWeights = "/home/madhu/c++/YOLO-IOU/network_files/yolov3.weights";
 
     // Load the network  
     cv::dnn::Net net = cv::dnn::readNet(modelConfiguration, modelWeights);  //readNetFromDarknet for opencv 3.4.x
@@ -74,7 +74,7 @@ int main()
     // Open a video file or an image file or a camera stream.
     std::string str, outputFile;
 
-    std::string video_file = "/home/hitech/c++/YOLO-IOU/videos/car_trim.mp4";
+    std::string video_file = "/home/madhu/c++/YOLO-IOU/videos/car_trim.mp4";
     
 
     cv::VideoCapture cap;
