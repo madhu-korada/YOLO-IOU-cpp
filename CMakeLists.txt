@@ -3,7 +3,7 @@ project( yolo_iou )
 set (CMAKE_CXX_STANDARD 11)
 
 # find_package(OpenCV REQUIRED)
-find_package(OpenCV 4.1.1 REQUIRED PATHS "/home/hitech/installation/OpenCV-master/lib/cmake/opencv4")
+find_package(OpenCV 4.1.1 REQUIRED PATHS "/home/madhu/installation/OpenCV-master/lib/cmake/opencv4")
 
 include_directories(${OpenCV_INCLUDE_DIRS}) # to add include directories
 add_executable( yolo_iou object_detection_yolo.cpp ) 
